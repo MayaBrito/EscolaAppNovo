@@ -9,10 +9,6 @@ var escolaApi = function ($http) {
     var _getEscola = function (codEscola) {
         return $http.get(baseUrl + "/rest/escolas/" + codEscola);
     };
-
-    var _getAvaliacoes = function () {
-        return $http.get(baseUrl + "/rest/tiposavaliacao");
-    };
     
     var _getMediaEscola = function (codEscola) {
       return $http.get(baseUrl + "/rest/escolas/" + codEscola + "/avaliacoes/media");
@@ -29,15 +25,24 @@ var escolaApi = function ($http) {
     var _getEscolasPorNome = function (nome) {
         return $http.get(baseUrl + "/rest/escolas?nome=" + nome);
     };
+    
+    var _getListarAvaliacoesPorAnoTipo = function (codEscola, ano, tipo) {
+      return $http.get(baseUrl + "/rest/escolas/" + codEscola + "/avaliacoes/ano/" + ano + "/tipo/" + tipo);
+    };
+    
+    var _getListarMediaPorAno = function (codEscola, ano) {
+      return $http.get(baseUrl + "/rest/escolas/" + codEscola + "/avaliacoes/ano/" + ano + "/media");
+    };
 
     return {
         getEscolas: _getEscolas,
         getEscola: _getEscola,
-        getAvaliacoes: _getAvaliacoes,
         getMediaEscola: _getMediaEscola,
         getEscolaAvaliacoes: _getEscolaAvaliacoes,
         getEscolaAvaliacoesAno: _getEscolaAvaliacoesAno,
-        getEscolasPorNome: _getEscolasPorNome
+        getEscolasPorNome: _getEscolasPorNome,
+        getListarAvaliacoesPorAnoTipo: _getListarAvaliacoesPorAnoTipo,
+        getListarMediaPorAno: _getListarMediaPorAno
     };
 }
 

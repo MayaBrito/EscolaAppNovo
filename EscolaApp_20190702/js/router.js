@@ -18,10 +18,10 @@ escolaApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'pesquisarEscolaPorCodigo.html',
             controller: 'PesquisarEscolaPorCodigoCtrl'
         })
-        .state('tiposAvaliacao', {
-            url: '/tiposavaliacao',
-            templateUrl: 'listarTiposAvaliacao.html',
-            controller: 'ListarTiposAvaliacaoCtrl'
+        .state('tiposAvaliacaoPorNome', {
+            url: '/tiposAvaliacaoPorNome',
+            templateUrl: 'listarTiposAvaliacaoPorNome.html',
+            controller: 'ListarTiposAvaliacaoPorNomeCtrl'
         })
     
         .state('listarMediaEscola', {
@@ -31,7 +31,7 @@ escolaApp.config(function ($stateProvider, $urlRouterProvider) {
         })
     
         .state('avaliacaoEscola', {
-            url: '/avaliacaoEscola',
+            url: '/avaliacaoEscola/:codEscola',
             templateUrl:'listarAvaliacoes.html',
             controller: 'AvaliacaoEscolaCtrl'
         })
@@ -45,8 +45,26 @@ escolaApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('escolaPorNome', {
             url: '/escolaPorNome',
             templateUrl: 'pesquisarEscolasPorNome.html',
-            controller: 'pesquisarEscolasPorNomeCtrl'
-        })   
+            controller: 'PesquisarEscolasPorNomeCtrl'
+        })  
+    
+        .state('avaliacoesPorAnoTipo', {
+            url: '/avaliacoesPorAnoTipo',
+            templateUrl: 'listarAvaliacoesPorAnoTipo.html',
+            controller: 'ListarAvaliacoesPorAnoTipoCtrl'
+        }) 
+    
+        .state('tiposAvaliacoes', {
+            url: '/tiposAvaliacoes',
+            templateUrl: 'tiposAvaliacoes.html',
+            controller: 'TiposAvaliacoesCtrl'
+        }) 
+    
+        .state('listarMediaPorAno', {
+            url: '/listarMediaPorAno',
+            templateUrl:'listarMediaPorAno.html',
+            controller: 'ListarMediaPorAnoCtrl'
+        })
 ;    
     
 });

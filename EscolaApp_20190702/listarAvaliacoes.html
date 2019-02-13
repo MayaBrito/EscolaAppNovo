@@ -1,17 +1,19 @@
 <form>
   <div class="box">
       <div class="form-group">
-          <label for="nome">
+          <label for="codEscola">
               Código:
           </label>
           <input class="form-control" type="text" name="codEscola"
             ng-model="codEscola" placeholder="Código da Escola"/>
       </div>
-
-      <button type="button" class="btn btn-primary btn-lg btn-block"
-        ng-click="escolaAvaliacoes(codEscola)">
-          Pesquisar
-      </button>
+      <div class="form-group">
+          <label for="nome">
+              Nome:
+          </label>
+          <input class="form-control" type="text" name="nome"
+            ng-model="escola.nome" placeholder="Nome da Escola"/>
+      </div>
   </div>
 
   <!-- Tabela da Escola -->

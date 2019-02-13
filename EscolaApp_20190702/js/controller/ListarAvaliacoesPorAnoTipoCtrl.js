@@ -1,20 +1,18 @@
-var mediaEscolaCtrl = function($scope, $mdToast, escolaApi) {
-
-    $scope.media = 0;
-
-    $scope.pesquisarMediaEscola = function(codEscola) {
-      escolaApi.getMediaEscola(codEscola)
+var ListarAvaliacoesPorAnoTipoCtrl = function($scope, $mdToast, escolaApi) {
+    $scope.avaliacaoPorAnoTipo = {};
+    $scope.listarAvaliacoesPorAnoTipo = function(codEscola, ano, tipo) {
+      escolaApi.getListarAvaliacoesPorAnoTipo(codEscola, ano, tipo)
             .then(function (response) {
                 // Toast
                 var toast = $mdToast.simple()
-                    .textContent('As médias da escola foram listadas abaixo.')
+                    .textContent('As Avaliaçoes foram listadas abaixo.')
                     .position('top right')
                     .action('OK')
                     .hideDelay(6000)
                     .toastClass('my-success');
-                $mdToast.show(toast);
+                $mdToast.show(toast);    
           
-                $scope.media = response.data.media;
+                $scope.avaliacaoPorAnoTipo = response.data;
             })
             .catch(function (error) {
                 var toast = $mdToast.simple()
@@ -30,4 +28,4 @@ var mediaEscolaCtrl = function($scope, $mdToast, escolaApi) {
     }
 };
 
-escolaApp.controller("MediaEscolaCtrl", mediaEscolaCtrl);
+escolaApp.controller("ListarAvaliacoesPorAnoTipoCtrl", ListarAvaliacoesPorAnoTipoCtrl);
